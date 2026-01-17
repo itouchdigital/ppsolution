@@ -131,30 +131,95 @@
         © 2026 Parshwa Padme Solutions Pvt Ltd | Beyond the Horizon
     </footer>
 
-    <script>
-        // Custom Magnetic Cursor
-        const cursor = document.getElementById('cursor');
-        window.addEventListener('mousemove', (e) => {
-            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.15, ease: "power2.out" });
-        });
+    <style>
+    /* Add this to your existing CSS */
+    #bg-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Sits behind everything */
+        background: radial-gradient(circle at center, #0a0c10 0%, #050505 100%);
+    }
 
-        // Hover Effect
-        const hoverables = document.querySelectorAll('a, button, .service-card, input');
-        hoverables.forEach(item => {
-            item.addEventListener('mouseenter', () => gsap.to(cursor, { scale: 3, alpha: 0.2 }));
-            item.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1, alpha: 1 }));
-        });
+    /* Subtle grid overlay for a technical feel */
+    .grid-overlay {
+        position: fixed;
+        inset: 0;
+        background-image: 
+            linear-gradient(rgba(0, 255, 200, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 255, 200, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: -1;
+        pointer-events: none;
+    }
+</style>
 
-        // Scroll Reveal Logic
-        const sections = document.querySelectorAll('section');
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) entry.target.classList.add('is-visible');
+<canvas id="bg-canvas"></canvas>
+<div class="grid-overlay"></div>
+
+<script>
+    // THE MESH BACKGROUND LOGIC
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const mouse = { x: null, y: null, radius: 150 };
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+    });
+
+    function init() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2,
+                speedX: (Math.random() - 0.5) * 0.5,
+                speedY: (Math.random() - 0.5) * 0.5
             });
-        }, observerOptions);
+        }
+    }
 
-        sections.forEach(section => observer.observe(section));
-    </script>
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.x += p.speedX;
+            p.y += p.speedY;
+
+            if (p.x > canvas.width || p.x < 0) p.speedX *= -1;
+            if (p.y > canvas.height || p.y < 0) p.speedY *= -1;
+
+            // Draw particle
+            ctx.fillStyle = 'rgba(0, 255, 200, 0.5)';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Connect to mouse
+            let dx = mouse.x - p.x;
+            let dy = mouse.y - p.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < mouse.radius) {
+                ctx.strokeStyle = `rgba(0, 255, 200, ${1 - distance/mouse.radius})`;
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(mouse.x, mouse.y);
+                ctx.stroke();
+            }
+        });
+        requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+    window.addEventListener('resize', init);
+</script>
 </body>
 </html>
