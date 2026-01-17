@@ -10,31 +10,105 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root { --accent: #00FFC8; --bg: #050505; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: #ffffff; overflow-x: hidden; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg); 
+            color: #ffffff; 
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
         
         /* Smooth Magnetic Cursor */
-        #cursor { width: 20px; height: 20px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
+        #cursor { 
+            width: 20px; 
+            height: 20px; 
+            background: var(--accent); 
+            border-radius: 50%; 
+            position: fixed; 
+            pointer-events: none; 
+            z-index: 9999; 
+            mix-blend-mode: difference;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+        }
 
         /* Modern Glassmorphism */
-        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+        }
         
-        .nav-link { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; transition: color 0.3s; }
+        .nav-link { 
+            font-size: 11px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.2em; 
+            transition: color 0.3s; 
+        }
         .nav-link:hover { color: var(--accent); }
 
-        .gradient-text { background: linear-gradient(135deg, #fff 30%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-text { 
+            background: linear-gradient(135deg, #fff 30%, var(--accent) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         
         /* Section Transitions */
-        section { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
-        section.is-visible { opacity: 1; transform: translateY(0); }
+        section { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: all 1s ease-out; 
+        }
+        section.is-visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
 
-        .service-card { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); cursor: pointer; }
-        .service-card:hover { border-color: var(--accent); transform: translateY(-10px); background: rgba(0, 255, 200, 0.05); }
+        .service-card { 
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
+            cursor: pointer; 
+        }
+        .service-card:hover { 
+            border-color: var(--accent); 
+            transform: translateY(-10px); 
+            background: rgba(0, 255, 200, 0.05); 
+        }
+
+        /* Canvas Background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #0a0c10 0%, #050505 100%);
+        }
+
+        /* Subtle grid overlay for a technical feel */
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(0, 255, 200, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 200, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Background Elements -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="grid-overlay"></div>
     <div id="cursor"></div>
 
+    <!-- Navigation -->
     <nav class="fixed w-full z-[100] px-6 lg:px-12 py-6 flex justify-between items-center glass">
         <div class="text-xl font-extrabold tracking-tighter italic">
             PARSHWA <span class="text-[#00FFC8]">Padme Solutions Pvt Ltd</span>
@@ -48,6 +122,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="min-h-screen flex flex-col justify-center px-6 lg:px-24 relative is-visible">
         <div class="absolute top-1/3 right-10 w-96 h-96 bg-[#00FFC8]/10 blur-[150px] rounded-full animate-pulse"></div>
         <h4 class="text-[#00FFC8] font-bold tracking-[0.4em] mb-4 uppercase text-xs">Innovation Hub Ahmedabad</h4>
@@ -58,13 +133,14 @@
             Parshwa Padme Solutions Pvt Ltd delivers high-performance software, precision marketing, and enterprise communication tools for global leaders.
         </p>
         <div class="flex gap-6">
-            <button onclick="document.getElementById('services').scrollIntoView()" class="group flex items-center gap-3 font-bold uppercase text-xs tracking-widest">
+            <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="group flex items-center gap-3 font-bold uppercase text-xs tracking-widest">
                 <span class="w-12 h-[1px] bg-white group-hover:w-20 group-hover:bg-[#00FFC8] transition-all"></span>
                 Explore Solutions
             </button>
         </div>
     </section>
 
+    <!-- About Teaser Section -->
     <section id="about-teaser" class="py-32 px-6 lg:px-24 grid lg:grid-cols-2 gap-20 border-y border-white/5">
         <div>
             <h2 class="text-4xl font-black mb-6 uppercase">Rooted in <span class="text-[#00FFC8]">Gujarat</span>,<br> Serving the World.</h2>
@@ -83,6 +159,7 @@
         </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services" class="py-32 px-6 lg:px-24">
         <div class="flex justify-between items-end mb-16">
             <h2 class="text-5xl font-black">SERVICES</h2>
@@ -110,116 +187,162 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="py-32 px-6 lg:px-24">
         <div class="glass p-12 lg:p-20 rounded-[3rem] text-center max-w-5xl mx-auto">
             <h2 class="text-4xl lg:text-6xl font-black mb-8 italic">START YOUR <br>EVOLUTION.</h2>
             <p class="text-gray-400 mb-12 max-w-xl mx-auto">Discuss your project with our Ahmedabad-based engineering team today.</p>
-            <form class="grid lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
-                <input type="email" placeholder="Email Address" class="bg-white/5 border border-white/10 p-4 rounded-full outline-none focus:border-[#00FFC8]">
+            <form class="grid lg:grid-cols-3 gap-4 max-w-3xl mx-auto" onsubmit="return false;">
+                <input type="email" placeholder="Email Address" class="bg-white/5 border border-white/10 p-4 rounded-full outline-none focus:border-[#00FFC8] text-white">
                 <select class="bg-white/5 border border-white/10 p-4 rounded-full outline-none focus:border-[#00FFC8] text-gray-400">
                     <option>Select Service</option>
                     <option>Software</option>
                     <option>Marketing</option>
                     <option>Bulk Messaging</option>
                 </select>
-                <button class="bg-[#00FFC8] text-black font-black p-4 rounded-full uppercase text-xs tracking-widest">Submit Inquiry</button>
+                <button type="submit" class="bg-[#00FFC8] text-black font-black p-4 rounded-full uppercase text-xs tracking-widest hover:bg-white transition">Submit Inquiry</button>
             </form>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="py-12 text-center text-[10px] text-gray-600 tracking-[0.3em] uppercase">
         © 2026 Parshwa Padme Solutions Pvt Ltd | Beyond the Horizon
     </footer>
 
-    <style>
-    /* Add this to your existing CSS */
-    #bg-canvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1; /* Sits behind everything */
-        background: radial-gradient(circle at center, #0a0c10 0%, #050505 100%);
-    }
+    <!-- JavaScript -->
+    <script>
+        // Custom Cursor Effect
+        (function initCursor() {
+            const cursor = document.getElementById('cursor');
+            if (!cursor) return;
 
-    /* Subtle grid overlay for a technical feel */
-    .grid-overlay {
-        position: fixed;
-        inset: 0;
-        background-image: 
-            linear-gradient(rgba(0, 255, 200, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 255, 200, 0.03) 1px, transparent 1px);
-        background-size: 50px 50px;
-        z-index: -1;
-        pointer-events: none;
-    }
-</style>
-
-<canvas id="bg-canvas"></canvas>
-<div class="grid-overlay"></div>
-
-<script>
-    // THE MESH BACKGROUND LOGIC
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    const mouse = { x: null, y: null, radius: 150 };
-
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.x;
-        mouse.y = e.y;
-    });
-
-    function init() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        particles = [];
-        for (let i = 0; i < 100; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 2,
-                speedX: (Math.random() - 0.5) * 0.5,
-                speedY: (Math.random() - 0.5) * 0.5
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
             });
-        }
-    }
+        })();
 
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-            p.x += p.speedX;
-            p.y += p.speedY;
+        // Canvas Particle Background
+        (function initCanvas() {
+            const canvas = document.getElementById('bg-canvas');
+            if (!canvas) return;
 
-            if (p.x > canvas.width || p.x < 0) p.speedX *= -1;
-            if (p.y > canvas.height || p.y < 0) p.speedY *= -1;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
 
-            // Draw particle
-            ctx.fillStyle = 'rgba(0, 255, 200, 0.5)';
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fill();
+            let particles = [];
+            const mouse = { x: null, y: null, radius: 150 };
 
-            // Connect to mouse
-            let dx = mouse.x - p.x;
-            let dy = mouse.y - p.y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < mouse.radius) {
-                ctx.strokeStyle = `rgba(0, 255, 200, ${1 - distance/mouse.radius})`;
-                ctx.lineWidth = 0.5;
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(mouse.x, mouse.y);
-                ctx.stroke();
+            // Mouse tracking
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+
+            // Initialize particles
+            function init() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                particles = [];
+                
+                const particleCount = Math.min(100, Math.floor(canvas.width * canvas.height / 15000));
+                
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        size: Math.random() * 2 + 0.5,
+                        speedX: (Math.random() - 0.5) * 0.5,
+                        speedY: (Math.random() - 0.5) * 0.5
+                    });
+                }
             }
-        });
-        requestAnimationFrame(animate);
-    }
 
-    init();
-    animate();
-    window.addEventListener('resize', init);
-</script>
+            // Animation loop
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (const p of particles) {
+                    // Update position
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+
+                    // Bounce off edges
+                    if (p.x > canvas.width || p.x < 0) p.speedX *= -1;
+                    if (p.y > canvas.height || p.y < 0) p.speedY *= -1;
+
+                    // Draw particle
+                    ctx.fillStyle = 'rgba(0, 255, 200, 0.5)';
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Connect to mouse
+                    if (mouse.x !== null && mouse.y !== null) {
+                        const dx = mouse.x - p.x;
+                        const dy = mouse.y - p.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < mouse.radius) {
+                            ctx.strokeStyle = `rgba(0, 255, 200, ${(1 - distance / mouse.radius) * 0.5})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(animate);
+            }
+
+            // Start animation
+            init();
+            animate();
+
+            // Resize handler
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(init, 200);
+            });
+        })();
+
+        // Scroll reveal animations
+        (function initScrollReveal() {
+            const sections = document.querySelectorAll('section:not(.is-visible)');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        })();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
