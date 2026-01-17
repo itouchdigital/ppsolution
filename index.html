@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parshwa Padme Solutions | Digital Engineering Excellence</title>
+    <title>Parshwa Padme Solutions | Engineering Digital Dominance</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -12,214 +12,151 @@
         :root { --accent: #00FFC8; --bg: #050505; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: #ffffff; overflow-x: hidden; }
         
-        /* Smooth Magnetic Cursor */
+        /* 1. Background Effects */
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at center, #0a0c10 0%, #050505 100%); }
+        .grid-overlay { position: fixed; inset: 0; background-image: linear-gradient(rgba(0, 255, 200, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 200, 0.03) 1px, transparent 1px); background-size: 60px 60px; z-index: -1; pointer-events: none; }
+
+        /* 2. Custom Cursor */
         #cursor { width: 20px; height: 20px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
 
-        /* Modern Glassmorphism */
+        /* 3. Glass & Styling */
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        
-        .nav-link { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; transition: color 0.3s; }
-        .nav-link:hover { color: var(--accent); }
-
         .gradient-text { background: linear-gradient(135deg, #fff 30%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Section Transitions */
-        section { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
-        section.is-visible { opacity: 1; transform: translateY(0); }
-
         .service-card { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); cursor: pointer; }
         .service-card:hover { border-color: var(--accent); transform: translateY(-10px); background: rgba(0, 255, 200, 0.05); }
+        
+        section { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
+        section.is-visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
+    <canvas id="bg-canvas"></canvas>
+    <div class="grid-overlay"></div>
     <div id="cursor"></div>
 
     <nav class="fixed w-full z-[100] px-6 lg:px-12 py-6 flex justify-between items-center glass">
-        <div class="text-xl font-extrabold tracking-tighter italic">
-            PARSHWA <span class="text-[#00FFC8]">Padme Solutions Pvt Ltd</span>
-        </div>
+        <div class="text-xl font-extrabold tracking-tighter italic">PARSHWA <span class="text-[#00FFC8]">PADME</span></div>
         <div class="hidden lg:flex gap-10 items-center">
-            <a href="index.html" class="nav-link text-[#00FFC8]">Home</a>
-            <a href="about.html" class="nav-link">About Company</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="admin.html" class="nav-link opacity-30 hover:opacity-100">Portal</a>
-            <a href="#contact" class="px-6 py-2 bg-[#00FFC8] text-black font-bold rounded-full text-[10px] uppercase tracking-widest hover:bg-white transition">Get Started</a>
+            <a href="index.html" class="text-[11px] font-bold uppercase tracking-widest text-[#00FFC8]">Home</a>
+            <a href="about.html" class="text-[11px] font-bold uppercase tracking-widest hover:text-[#00FFC8] transition">About Us</a>
+            <a href="#services" class="text-[11px] font-bold uppercase tracking-widest hover:text-[#00FFC8] transition">Services</a>
+            <a href="admin.html" class="text-[11px] font-bold uppercase tracking-widest opacity-40 hover:opacity-100">Portal</a>
+            <a href="#contact" class="px-6 py-2 bg-[#00FFC8] text-black font-bold rounded-full text-[10px] uppercase tracking-widest hover:bg-white transition">Inquire Now</a>
         </div>
     </nav>
 
-    <section id="home" class="min-h-screen flex flex-col justify-center px-6 lg:px-24 relative is-visible">
-        <div class="absolute top-1/3 right-10 w-96 h-96 bg-[#00FFC8]/10 blur-[150px] rounded-full animate-pulse"></div>
-        <h4 class="text-[#00FFC8] font-bold tracking-[0.4em] mb-4 uppercase text-xs">Innovation Hub Ahmedabad</h4>
+    <section id="home" class="min-h-screen flex flex-col justify-center px-6 lg:px-24 is-visible">
+        <h4 class="text-[#00FFC8] font-bold tracking-[0.4em] mb-4 uppercase text-xs">Future-Proof Solutions</h4>
         <h1 class="text-5xl lg:text-[110px] font-extrabold leading-[0.9] mb-8">
-            ENGINEERING <br> <span class="gradient-text">DIGITAL FUTURES.</span>
+            SCALE <br> <span class="gradient-text">WITHOUT LIMITS.</span>
         </h1>
         <p class="text-gray-400 text-lg max-w-2xl mb-10 leading-relaxed">
-            Parshwa Padme Solutions Pvt Ltd delivers high-performance software, precision marketing, and enterprise communication tools for global leaders.
+            Parshwa Padme Solutions Pvt Ltd is an Ahmedabad-based tech powerhouse specializing in Custom Software, Performance Marketing, and Enterprise Messaging.
         </p>
-        <div class="flex gap-6">
-            <button onclick="document.getElementById('services').scrollIntoView()" class="group flex items-center gap-3 font-bold uppercase text-xs tracking-widest">
-                <span class="w-12 h-[1px] bg-white group-hover:w-20 group-hover:bg-[#00FFC8] transition-all"></span>
-                Explore Solutions
-            </button>
-        </div>
-    </section>
-
-    <section id="about-teaser" class="py-32 px-6 lg:px-24 grid lg:grid-cols-2 gap-20 border-y border-white/5">
         <div>
-            <h2 class="text-4xl font-black mb-6 uppercase">Rooted in <span class="text-[#00FFC8]">Gujarat</span>,<br> Serving the World.</h2>
-            <p class="text-gray-500 mb-8 leading-relaxed">Since 2018, we have evolved from a boutique development shop to a full-scale digital consultancy. We specialize in transforming complex business hurdles into scalable software assets.</p>
-            <a href="about.html" class="inline-block border border-white/20 px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:border-[#00FFC8] hover:text-[#00FFC8] transition">Read Our Story</a>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-            <div class="glass p-8 rounded-2xl text-center">
-                <h3 class="text-4xl font-black mb-2">7+</h3>
-                <p class="text-[10px] text-gray-500 uppercase tracking-widest">Years Experience</p>
-            </div>
-            <div class="glass p-8 rounded-2xl text-center">
-                <h3 class="text-4xl font-black mb-2">500+</h3>
-                <p class="text-[10px] text-gray-500 uppercase tracking-widest">Global Clients</p>
-            </div>
+            <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})" class="px-8 py-4 border border-[#00FFC8] text-[#00FFC8] font-bold uppercase text-xs tracking-widest hover:bg-[#00FFC8] hover:text-black transition">Explore Our Units</button>
         </div>
     </section>
 
     <section id="services" class="py-32 px-6 lg:px-24">
-        <div class="flex justify-between items-end mb-16">
-            <h2 class="text-5xl font-black">SERVICES</h2>
-            <span class="text-[#00FFC8] font-mono">[ CORE_UNITS ]</span>
-        </div>
+        <h2 class="text-4xl font-black mb-16 uppercase italic">Expertise Units</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div onclick="window.location.href='marketing.html'" class="service-card glass p-10 rounded-[2rem] relative group">
-                <div class="text-xs text-[#00FFC8] mb-10 font-bold tracking-widest">01. GROWTH</div>
+            <div onclick="window.location.href='marketing.html'" class="service-card glass p-10 rounded-[2rem] group">
+                <div class="text-xs text-[#00FFC8] mb-8 font-mono">/ 01 GROWTH</div>
                 <h3 class="text-2xl font-bold mb-4">Digital Marketing</h3>
-                <p class="text-sm text-gray-500 mb-8">Performance marketing and SEO strategies that dominate the search landscape.</p>
-                <div class="text-[#00FFC8] opacity-0 group-hover:opacity-100 transition">View Unit ↗</div>
+                <p class="text-sm text-gray-500 mb-6">ROI-focused marketing that scales brand authority and revenue pipelines.</p>
+                <span class="text-[10px] font-bold text-[#00FFC8] group-hover:underline">LEARN MORE ↗</span>
             </div>
-            <div onclick="window.location.href='software.html'" class="service-card glass p-10 rounded-[2rem] relative group">
-                <div class="text-xs text-[#00FFC8] mb-10 font-bold tracking-widest">02. BUILD</div>
+            <div onclick="window.location.href='software.html'" class="service-card glass p-10 rounded-[2rem] group">
+                <div class="text-xs text-[#00FFC8] mb-8 font-mono">/ 02 BUILD</div>
                 <h3 class="text-2xl font-bold mb-4">Custom Software</h3>
-                <p class="text-sm text-gray-500 mb-8">End-to-end development of ERPs, CRMs, and custom web architectures.</p>
-                <div class="text-[#00FFC8] opacity-0 group-hover:opacity-100 transition">View Unit ↗</div>
+                <p class="text-sm text-gray-500 mb-6">Bespoke ERP, CRM, and SaaS architectures designed for high performance.</p>
+                <span class="text-[10px] font-bold text-[#00FFC8] group-hover:underline">LEARN MORE ↗</span>
             </div>
-            <div onclick="window.location.href='messaging.html'" class="service-card glass p-10 rounded-[2rem] relative group">
-                <div class="text-xs text-[#00FFC8] mb-10 font-bold tracking-widest">03. CONNECT</div>
+            <div onclick="window.location.href='messaging.html'" class="service-card glass p-10 rounded-[2rem] group">
+                <div class="text-xs text-[#00FFC8] mb-8 font-mono">/ 03 REACH</div>
                 <h3 class="text-2xl font-bold mb-4">Bulk Messaging</h3>
-                <p class="text-sm text-gray-500 mb-8">High-volume communication APIs for enterprise-scale engagement.</p>
-                <div class="text-[#00FFC8] opacity-0 group-hover:opacity-100 transition">View Unit ↗</div>
+                <p class="text-sm text-gray-500 mb-6">Global API solutions for WhatsApp, SMS, and high-speed communication.</p>
+                <span class="text-[10px] font-bold text-[#00FFC8] group-hover:underline">LEARN MORE ↗</span>
             </div>
         </div>
     </section>
 
     <section id="contact" class="py-32 px-6 lg:px-24">
-        <div class="glass p-12 lg:p-20 rounded-[3rem] text-center max-w-5xl mx-auto">
-            <h2 class="text-4xl lg:text-6xl font-black mb-8 italic">START YOUR <br>EVOLUTION.</h2>
-            <p class="text-gray-400 mb-12 max-w-xl mx-auto">Discuss your project with our Ahmedabad-based engineering team today.</p>
-            <form class="grid lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
-                <input type="email" placeholder="Email Address" class="bg-white/5 border border-white/10 p-4 rounded-full outline-none focus:border-[#00FFC8]">
-                <select class="bg-white/5 border border-white/10 p-4 rounded-full outline-none focus:border-[#00FFC8] text-gray-400">
-                    <option>Select Service</option>
-                    <option>Software</option>
-                    <option>Marketing</option>
-                    <option>Bulk Messaging</option>
-                </select>
-                <button class="bg-[#00FFC8] text-black font-black p-4 rounded-full uppercase text-xs tracking-widest">Submit Inquiry</button>
+        <div class="glass p-12 lg:p-20 rounded-[3rem] text-center max-w-4xl mx-auto border-[#00FFC8]/20">
+            <h2 class="text-4xl lg:text-6xl font-black mb-8 italic">READY TO START?</h2>
+            <p class="text-gray-400 mb-12">Connect with our engineers to discuss your digital transformation.</p>
+            <form class="flex flex-col md:flex-row gap-4 justify-center">
+                <input type="email" placeholder="Business Email" class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-[#00FFC8] min-w-[300px]">
+                <button class="bg-[#00FFC8] text-black font-black p-4 px-10 rounded-xl uppercase text-xs tracking-widest">Transmit Inquiry</button>
             </form>
         </div>
     </section>
 
-    <footer class="py-12 text-center text-[10px] text-gray-600 tracking-[0.3em] uppercase">
-        © 2026 Parshwa Padme Solutions Pvt Ltd | Beyond the Horizon
+    <footer class="py-12 text-center text-[10px] text-gray-600 tracking-[0.2em] uppercase">
+        © 2026 Parshwa Padme Solutions Pvt Ltd | Ahmedabad, India
     </footer>
 
-    <style>
-    /* Add this to your existing CSS */
-    #bg-canvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1; /* Sits behind everything */
-        background: radial-gradient(circle at center, #0a0c10 0%, #050505 100%);
-    }
+    <script>
+        // BACKGROUND MESH LOGIC
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const mouse = { x: null, y: null, radius: 180 };
 
-    /* Subtle grid overlay for a technical feel */
-    .grid-overlay {
-        position: fixed;
-        inset: 0;
-        background-image: 
-            linear-gradient(rgba(0, 255, 200, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 255, 200, 0.03) 1px, transparent 1px);
-        background-size: 50px 50px;
-        z-index: -1;
-        pointer-events: none;
-    }
-</style>
+        window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
 
-<canvas id="bg-canvas"></canvas>
-<div class="grid-overlay"></div>
-
-<script>
-    // THE MESH BACKGROUND LOGIC
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    const mouse = { x: null, y: null, radius: 150 };
-
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.x;
-        mouse.y = e.y;
-    });
-
-    function init() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        particles = [];
-        for (let i = 0; i < 100; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 2,
-                speedX: (Math.random() - 0.5) * 0.5,
-                speedY: (Math.random() - 0.5) * 0.5
-            });
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-            p.x += p.speedX;
-            p.y += p.speedY;
-
-            if (p.x > canvas.width || p.x < 0) p.speedX *= -1;
-            if (p.y > canvas.height || p.y < 0) p.speedY *= -1;
-
-            // Draw particle
-            ctx.fillStyle = 'rgba(0, 255, 200, 0.5)';
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Connect to mouse
-            let dx = mouse.x - p.x;
-            let dy = mouse.y - p.y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < mouse.radius) {
-                ctx.strokeStyle = `rgba(0, 255, 200, ${1 - distance/mouse.radius})`;
-                ctx.lineWidth = 0.5;
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(mouse.x, mouse.y);
-                ctx.stroke();
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2,
+                    speedX: (Math.random() - 0.5) * 0.4,
+                    speedY: (Math.random() - 0.5) * 0.4
+                });
             }
-        });
-        requestAnimationFrame(animate);
-    }
+        }
 
-    init();
-    animate();
-    window.addEventListener('resize', init);
-</script>
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.x += p.speedX; p.y += p.speedY;
+                if (p.x > canvas.width || p.x < 0) p.speedX *= -1;
+                if (p.y > canvas.height || p.y < 0) p.speedY *= -1;
+
+                ctx.fillStyle = 'rgba(0, 255, 200, 0.3)';
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+
+                let dx = mouse.x - p.x; let dy = mouse.y - p.y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius) {
+                    ctx.strokeStyle = `rgba(0, 255, 200, ${1 - dist/mouse.radius})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+
+        // CURSOR & SCROLL REVEAL
+        const cursor = document.getElementById('cursor');
+        window.addEventListener('mousemove', e => {
+            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('is-visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('section').forEach(s => observer.observe(s));
+
+        init(); animate();
+        window.addEventListener('resize', init);
+    </script>
 </body>
 </html>
