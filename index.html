@@ -59,37 +59,48 @@
     </section>
 
     <section id="services" class="py-32 px-6 lg:px-24">
-        <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-6">
-            <div>
-                <h2 class="text-5xl font-extrabold mb-4">OUR ECOSYSTEM</h2>
-                <p class="text-gray-500 max-w-md">Comprehensive tech stack and marketing pipelines designed for ROI.</p>
+    <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-6">
+        <div>
+            <h2 class="text-5xl font-extrabold mb-4 uppercase">Our Ecosystem</h2>
+            <p class="text-gray-500 max-w-md">Click on a specialized unit to view deep-dive solutions and opt-in.</p>
+        </div>
+        <div class="text-right text-[#00FFC8] font-mono">[ 01 / 04 ]</div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div onclick="window.location.href='marketing.html'" class="service-card glass p-10 rounded-3xl cursor-pointer group relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-100 transition-opacity">
+                <span class="text-[#00FFC8] text-xl">↗</span>
             </div>
-            <div class="text-right text-[#00FFC8] font-mono">[ 01 / 04 ]</div>
+            <div class="text-4xl mb-6">📈</div>
+            <h3 class="text-2xl font-bold mb-4">Digital Marketing</h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-6">Performance-led growth strategies for the 2026 digital economy.</p>
+            <span class="text-[10px] font-black uppercase tracking-[0.2em] text-[#00FFC8] border-b border-[#00FFC8]/30 pb-1">Explore Unit</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="glass p-10 rounded-2xl bento-item">
-                <div class="text-4xl mb-6">📈</div>
-                <h3 class="text-xl font-bold mb-4">Digital Marketing</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">SEO, Performance Marketing, and Social ROI strategies that turn clicks into customers.</p>
+        <div onclick="window.location.href='software.html'" class="service-card glass p-10 rounded-3xl cursor-pointer group relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-100 transition-opacity">
+                <span class="text-[#00FFC8] text-xl">↗</span>
             </div>
-            <div class="glass p-10 rounded-2xl bento-item">
-                <div class="text-4xl mb-6">💻</div>
-                <h3 class="text-xl font-bold mb-4">Custom Software</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Scalable ERP, CRM, and bespoke web applications built for high-concurrency environments.</p>
-            </div>
-            <div class="glass p-10 rounded-2xl bento-item">
-                <div class="text-4xl mb-6">💬</div>
-                <h3 class="text-xl font-bold mb-4">Bulk Messaging</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Industrial-grade WhatsApp and SMS API integrations for seamless customer engagement.</p>
-            </div>
-            <div class="glass p-10 rounded-2xl bento-item">
-                <div class="text-4xl mb-6">🎨</div>
-                <h3 class="text-xl font-bold mb-4">UI/UX Design</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Data-driven design focused on conversion and user retention for modern platforms.</p>
-            </div>
+            <div class="text-4xl mb-6">💻</div>
+            <h3 class="text-2xl font-bold mb-4">Custom Software</h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-6">Scalable architectures and bespoke enterprise applications.</p>
+            <span class="text-[10px] font-black uppercase tracking-[0.2em] text-[#00FFC8] border-b border-[#00FFC8]/30 pb-1">Explore Unit</span>
         </div>
-    </section>
+
+        <div onclick="window.location.href='messaging.html'" class="service-card glass p-10 rounded-3xl cursor-pointer group relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-100 transition-opacity">
+                <span class="text-[#00FFC8] text-xl">↗</span>
+            </div>
+            <div class="text-4xl mb-6">💬</div>
+            <h3 class="text-2xl font-bold mb-4">Bulk Messaging</h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-6">Industrial APIs for WhatsApp, SMS, and global communication.</p>
+            <span class="text-[10px] font-black uppercase tracking-[0.2em] text-[#00FFC8] border-b border-[#00FFC8]/30 pb-1">Explore Unit</span>
+        </div>
+
+    </div>
+</section>
 
     <section id="results" class="py-24 bg-white text-black">
         <div class="px-6 lg:px-24 grid grid-cols-1 lg:grid-cols-3 gap-12">
