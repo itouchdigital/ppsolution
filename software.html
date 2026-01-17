@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body { background: #000; color: #fff; font-family: 'Space Grotesk'; }
+        .tech-pill { border: 1px solid #333; padding: 4px 12px; border-radius: 20px; font-size: 12px; color: #888; }
+    </style>
+</head>
+<body>
+    <nav class="p-8 flex justify-between">
+        <a href="index.html" class="text-gray-500">Close [x]</a>
+        <div class="font-bold uppercase tracking-widest">Dev / Lab</div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto py-20 px-6">
+        <div class="grid lg:grid-cols-2 gap-16">
+            <div class="glass p-12 border border-white/5 rounded-3xl" style="background: rgba(10,10,10,0.8);">
+                <h2 class="text-5xl font-bold mb-6">Bespoke <span class="text-[#00FFC8]">Software</span></h2>
+                <p class="text-gray-400 mb-10 leading-relaxed">We build architectures that don't just work—they scale. Whether it's a fintech platform or a complex ERP, our code is written for 99.9% uptime.</p>
+                
+                <div class="flex flex-wrap gap-2 mb-10">
+                    <span class="tech-pill">Node.js</span><span class="tech-pill">React</span><span class="tech-pill">Python</span>
+                    <span class="tech-pill">AWS</span><span class="tech-pill">Kubernetes</span><span class="tech-pill">PostgreSQL</span>
+                </div>
+
+                <div class="bg-white/5 p-6 rounded-2xl border-l-4 border-[#00FFC8]">
+                    <h4 class="font-bold text-[#00FFC8]">Opt-in for Development</h4>
+                    <p class="text-xs text-gray-500 mb-4">Start your digital transformation journey today.</p>
+                    <input type="email" placeholder="Your Work Email" class="w-full bg-black p-3 mb-3 border border-white/10 rounded-lg">
+                    <button class="w-full bg-white text-black font-bold p-3 rounded-lg">Get Free Consultation</button>
+                </div>
+            </div>
+            
+            <div class="flex flex-col justify-center">
+                <div class="space-y-12">
+                    <div>
+                        <h4 class="text-[#00FFC8] text-xs font-bold uppercase mb-2">01. Discovery</h4>
+                        <p class="text-gray-400">Deep dive into your business logic and requirements.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-[#00FFC8] text-xs font-bold uppercase mb-2">02. Sprinting</h4>
+                        <p class="text-gray-400">Agile development with weekly builds and feedback loops.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-[#00FFC8] text-xs font-bold uppercase mb-2">03. Deployment</h4>
+                        <p class="text-gray-400">CI/CD pipelines ensuring seamless go-live transition.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

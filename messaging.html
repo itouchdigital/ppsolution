@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: #080a10; color: white; font-family: sans-serif; }
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+    </style>
+</head>
+<body>
+    <div class="max-w-4xl mx-auto py-32 px-6 text-center">
+        <div class="w-20 h-20 bg-[#00FFC8]/20 rounded-full mx-auto mb-10 flex items-center justify-center">
+            <div class="w-4 h-4 bg-[#00FFC8] rounded-full pulse"></div>
+        </div>
+        <h1 class="text-6xl font-black mb-6 italic">RAPID <span class="text-[#00FFC8]">CONNECT</span></h1>
+        <p class="text-xl text-gray-400 mb-12">Industrial-grade WhatsApp, SMS, and Voice APIs. Reach millions in seconds.</p>
+        
+        <div class="bg-white p-10 rounded-[3rem] text-black">
+            <h3 class="text-2xl font-bold mb-8">Activate Your API Account</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+                <input type="text" placeholder="Full Name" class="border-b-2 border-black p-4 outline-none">
+                <input type="text" placeholder="Phone Number" class="border-b-2 border-black p-4 outline-none">
+                <input type="text" placeholder="Estimated Monthly Volume" class="border-b-2 border-black p-4 outline-none md:col-span-2">
+                <button class="md:col-span-2 bg-black text-[#00FFC8] p-5 rounded-full font-black mt-6 hover:bg-gray-800 transition">REQUEST API ACCESS</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

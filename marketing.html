@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;800&display=swap" rel="stylesheet">
+    <style>
+        body { background: #050505; color: white; font-family: 'Plus Jakarta Sans'; overflow-x: hidden; }
+        .accent-gradient { background: linear-gradient(90deg, #00FFC8, #0085FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+    <nav class="p-8 flex justify-between items-center">
+        <a href="index.html" class="text-sm uppercase tracking-tighter">← Back to Home</a>
+        <div class="font-bold tracking-tighter italic text-xl">PARSHWA <span class="text-[#00FFC8]">PADME</span></div>
+    </nav>
+
+    <section class="py-20 px-6 lg:px-24 grid lg:grid-cols-2 gap-20">
+        <div>
+            <h1 class="text-7xl font-extrabold mb-8 leading-none">GROWTH <br><span class="accent-gradient">ENGINEERING.</span></h1>
+            <p class="text-gray-400 text-lg mb-12">We don't just run ads; we build self-sustaining marketing ecosystems. From SEO dominance to performance marketing, we ensure your brand is heard above the noise.</p>
+            
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-2 h-2 bg-[#00FFC8] rounded-full"></div>
+                    <span>Predictive ROI Modeling</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-2 h-2 bg-[#00FFC8] rounded-full"></div>
+                    <span>Omni-channel Campaign Management</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-2 h-2 bg-[#00FFC8] rounded-full"></div>
+                    <span>AI-Driven Content Strategies</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-panel p-10 rounded-3xl">
+            <h3 class="text-2xl font-bold mb-6">Opt-in for Marketing Solutions</h3>
+            <form class="space-y-4">
+                <input type="text" placeholder="Company Name" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-[#00FFC8]">
+                <select class="w-full bg-black border border-white/10 p-4 rounded-xl outline-none focus:border-[#00FFC8]">
+                    <option>Select Budget Range</option>
+                    <option>$1k - $5k / mo</option>
+                    <option>$5k - $20k / mo</option>
+                    <option>$20k+ / mo</option>
+                </select>
+                <button class="w-full bg-[#00FFC8] text-black font-black p-4 rounded-xl uppercase tracking-widest hover:scale-[1.02] transition">Request Strategy Audit</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
