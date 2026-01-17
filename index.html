@@ -1,212 +1,147 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parshwa Padme Solutions Pvt Ltd | Digital Marketing & Web Solutions</title>
+    <title>Parshwa Padme Solutions | Beyond the Horizon</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#eff6ff',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                        }
-                    }
-                }
-            }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0A0A0B; color: #F5F5F7; overflow-x: hidden; }
+        
+        /* Custom Magnetic Cursor */
+        #cursor {
+            width: 20px; height: 20px;
+            background: #00FFC8;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
         }
-    </script>
-</head>
-<body class="bg-gray-50 text-gray-900 antialiased">
 
-    <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4 md:py-3">
-                <div class="flex items-center space-x-2">
-                    <h1 class="text-2xl font-bold bg-gradient-to-r from-primary-600 to-indigo-600 bg-clip-text text-transparent">PPWS</h1>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Home</a>
-                    <a href="#services" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Services</a>
-                    <a href="#about" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">About</a>
-                    <a href="#contact" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Contact</a>
-                </div>
-                <button class="md:hidden text-gray-700 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+        /* Glassmorphism Classes */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card:hover {
+            border-color: #00FFC8;
+            box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(90deg, #F5F5F7, #00FFC8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cursor"></div>
+
+    <nav class="fixed w-full z-50 p-6 flex justify-between items-center glass">
+        <div class="font-bold text-xl tracking-tighter">PARSHWA PADME</div>
+        <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
+            <a href="#home" class="hover:text-[#00FFC8] transition">Home</a>
+            <a href="#services" class="hover:text-[#00FFC8] transition">Services</a>
+            <a href="#about" class="hover:text-[#00FFC8] transition">Innovation</a>
+            <a href="#contact" class="px-4 py-2 bg-[#00FFC8] text-black font-bold rounded-full">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen bg-gradient-to-br from-primary-600 via-indigo-600 to-purple-700 text-white flex items-center justify-center overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-                Elevate Your <span class="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">Digital Presence</span>
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">Leading SEO, PPC, Web Design & Development experts delivering top results for businesses worldwide.[page:0][page:2]</p>
-            <a href="#contact" class="inline-block bg-white text-primary-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-2xl">Get Free Quote</a>
+    <section id="home" class="h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
+        <div class="absolute -z-10 w-[500px] h-[500px] bg-[#00FFC8] rounded-full filter blur-[150px] opacity-10"></div>
+        <h1 class="text-6xl md:text-9xl font-black text-center leading-none mb-6">
+            SOLUTIONS <br> <span class="gradient-text">BEYOND</span> LIMITS
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl text-center">
+            Parshwa Padme Solutions Pvt Ltd is redefining the digital landscape with custom software and marketing intelligence.
+        </p>
+        <div class="mt-10 animate-bounce">
+            <span class="text-[#00FFC8]">Scroll to Explore ↓</span>
         </div>
-        <div class="absolute inset-0 bg-black/10"></div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-600 to-indigo-600 bg-clip-text text-transparent mb-4">Our Core Services</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive digital solutions from SEO to custom web development.[page:1][page:2]</p>
+    <section id="services" class="min-h-screen py-20 px-6 max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16">Our Core Expertise</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="service-card glass p-8 rounded-3xl transition-all duration-500 transform hover:-translate-y-4">
+                <div class="w-12 h-12 bg-[#00FFC8] rounded-lg mb-6 flex items-center justify-center text-black font-bold">01</div>
+                <h3 class="text-2xl font-bold mb-4">Digital Marketing</h3>
+                <p class="text-gray-400">Data-driven strategies that scale your brand presence globally.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group bg-gradient-to-b from-white to-gray-50 p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-gray-100">
-                    <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">SEO Services</h3>
-                    <p class="text-gray-600 mb-6">Boost rankings with organic strategies, no black-hat tactics.[page:0]</p>
-                </div>
-                <div class="group bg-gradient-to-b from-white to-gray-50 p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-gray-100">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h6m-6 4h6m-6 8h6M3 3h18v18H3V3z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">PPC Management</h3>
-                    <p class="text-gray-600 mb-6">Targeted ads for maximum ROI on Google and social platforms.[page:2]</p>
-                </div>
-                <div class="group bg-gradient-to-b from-white to-gray-50 p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-gray-100">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Web Development</h3>
-                    <p class="text-gray-600 mb-6">Responsive sites, e-commerce, and custom apps.[page:1]</p>
-                </div>
-                <div class="group bg-gradient-to-b from-white to-gray-50 p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-gray-100 lg:col-span-3">
-                    <div class="w-16 h-16 bg-gradient-to-r from-orange-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">More Services</h3>
-                    <p class="text-gray-600">SMO, ORM, Graphic Design, Logo Design, Hosting & Maintenance.[page:2]</p>
-                </div>
+            <div class="service-card glass p-8 rounded-3xl transition-all duration-500 transform hover:-translate-y-4">
+                <div class="w-12 h-12 bg-[#00FFC8] rounded-lg mb-6 flex items-center justify-center text-black font-bold">02</div>
+                <h3 class="text-2xl font-bold mb-4">Custom Software</h3>
+                <p class="text-gray-400">Tailor-made solutions built with the latest tech stack (Node, React, Python).</p>
+            </div>
+            <div class="service-card glass p-8 rounded-3xl transition-all duration-500 transform hover:-translate-y-4">
+                <div class="w-12 h-12 bg-[#00FFC8] rounded-lg mb-6 flex items-center justify-center text-black font-bold">03</div>
+                <h3 class="text-2xl font-bold mb-4">Bulk Messaging</h3>
+                <p class="text-gray-400">High-volume communication tools to keep your customers engaged 24/7.</p>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-600 to-indigo-600 bg-clip-text text-transparent mb-6">About Parshwa Padme Solutions</h2>
-            <p class="text-xl text-gray-700 mb-12 leading-relaxed">Established as a premier digital agency, we specialize in SEO, PPC, SMO, and web solutions to drive growth. Committed to ethical practices and client success since 2018.[page:0][memory:10]</p>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div>
-                    <div class="text-3xl font-bold text-primary-600 mb-2">+500</div>
-                    <div class="text-gray-600">Projects Delivered</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-primary-600 mb-2">100%</div>
-                    <div class="text-gray-600">Client Satisfaction</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-primary-600 mb-2">24/7</div>
-                    <div class="text-gray-600">Support</div>
-                </div>
+    <section id="about" class="min-h-screen py-20 px-6 max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16">Innovation Lab</h2>
+        <div class="grid grid-cols-4 grid-rows-2 gap-4 h-[600px]">
+            <div class="col-span-2 row-span-2 glass rounded-3xl p-8 flex flex-col justify-end">
+                <h4 class="text-5xl font-bold">7+</h4>
+                <p class="text-[#00FFC8]">Years of Excellence</p>
+            </div>
+            <div class="col-span-2 glass rounded-3xl p-8 flex items-center justify-center">
+                <p class="text-xl italic">"Innovating since 2018"</p>
+            </div>
+            <div class="glass rounded-3xl p-8 flex items-center justify-center">
+                <span class="text-3xl">🚀</span>
+            </div>
+            <div class="glass rounded-3xl p-8 flex items-center justify-center">
+                <span class="text-3xl">💡</span>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-600 to-indigo-600 bg-clip-text text-transparent mb-4">Get In Touch</h2>
-                <p class="text-xl text-gray-600">Ready to boost your online presence? Contact us today.[page:1]</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold mb-8">Contact Info</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold">Phone</p>
-                                <p>+91 9322392392 / +91 9920650797[page:1]</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.27 7.27c.883.883 2.317.883 3.2 0L21 8"></path></svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold">Email</p>
-                                <p>info@ppwebsolutions.com[page:1]</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold">Address</p>
-                                <p>217, Rajasthan Technical Centre, Ghatkopar (W), Mumbai-400086.[page:1]</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <form class="space-y-6" action="/submit.php" method="POST">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Name *</label>
-                        <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all" placeholder="Your Name">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                        <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all" placeholder="your@email.com">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                        <input type="tel" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all" placeholder="Your Phone">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                        <textarea name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all" placeholder="Tell us about your project..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-gradient-to-r from-primary-600 to-indigo-600 text-white py-4 px-6 rounded-xl font-semibold text-lg hover:from-primary-700 hover:to-indigo-700 hover:scale-105 transition-all duration-300 shadow-xl">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    <script>
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.1
+            });
+        });
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="mb-8">
-                <h3 class="text-2xl font-bold mb-4">PPWS</h3>
-                <p class="text-gray-400 max-w-md mx-auto">Delivering excellence in digital marketing and web solutions.[page:0]</p>
-            </div>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://www.facebook.com/ParshwaPadmavatiWebSolutions" class="text-gray-400 hover:text-white transition-colors">Facebook</a>
-                <a href="https://twitter.com/ppwsmumbai" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
-            </div>
-            <div class="text-gray-400 text-sm">&copy; 2026 Parshwa Padme Solutions Pvt Ltd. All rights reserved. CIN: U72200GJ2018PTC102283[memory:10]</div>
-        </div>
-    </footer>
+        // Hover Effect for Cursor
+        const interactiveElements = document.querySelectorAll('a, .service-card, button');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                gsap.to(cursor, { scale: 4, background: 'transparent', border: '1px solid #00FFC8', duration: 0.3 });
+            });
+            el.addEventListener('mouseleave', () => {
+                gsap.to(cursor, { scale: 1, background: '#00FFC8', border: 'none', duration: 0.3 });
+            });
+        });
 
-    <style>
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fade-in 1s ease-out;
-        }
-    </style>
+        // GSAP Scroll Animations
+        gsap.registerPlugin(ScrollTrigger);
 
+        gsap.from(".service-card", {
+            scrollTrigger: "#services",
+            y: 100,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1
+        });
+    </script>
 </body>
 </html>
